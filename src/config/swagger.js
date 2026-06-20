@@ -13,6 +13,10 @@ const options = {
     },
     servers: [
       {
+        url: "https://meesho-backend-vert.vercel.app/api",
+        description: "Production server"
+      },
+      {
         url: "http://localhost:5000/api",
         description: "Local development server",
         variables: {
