@@ -22,6 +22,8 @@ const settingsSchema = new mongoose.Schema(
     showPaytm: { type: Boolean, default: true },
     showAmazonPay: { type: Boolean, default: true },
     showBHIM: { type: Boolean, default: true },
+    showWhatsApp: { type: Boolean, default: true },
+    showCOD: { type: Boolean, default: true },
 
     // UPI App Offers
     phonepeOfferText: { type: String, default: "" },
