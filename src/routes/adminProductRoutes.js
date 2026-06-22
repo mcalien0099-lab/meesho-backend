@@ -6,7 +6,11 @@ const {
   deleteAllProducts,
   bulkDeleteProducts,
   getAllProductsAdmin,
+  importProducts,
 } = require("../controllers/productController");
+
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
 /**
  * @swagger
@@ -131,5 +135,31 @@ router.delete("/:id", deleteProduct);
  *         description: Products deleted successfully
  */
 router.post("/bulk-delete", bulkDeleteProducts);
+
+/**
+ * @swagger
+ * /admin/products/import:
+ *   post:
+ *     summary: Import products from Excel or CSV
+ *     tags: [Admin]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Products imported successfully
+ *       400:
+ *         description: No valid rows found in file
+ */
+router.post("/import", upload.single("file"), importProducts);
 
 module.exports = router;

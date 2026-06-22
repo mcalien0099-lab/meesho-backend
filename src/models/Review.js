@@ -4,7 +4,7 @@ const reviewSchema = new mongoose.Schema(
   {
     productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
     productName: { type: String, default: "" },
-    userName: { type: String, default: "Anonymous" },
+    name: { type: String, default: "Anonymous" },
     rating: { type: Number, required: true, min: 1, max: 5 },
     comment: { type: String, default: "" },
   },
