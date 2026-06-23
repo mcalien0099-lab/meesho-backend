@@ -36,6 +36,9 @@ const settingsSchema = new mongoose.Schema(
     amazonpayDiscountAmount: { type: Number, default: 0 },
     bhimOfferText: { type: String, default: "" },
     bhimDiscountAmount: { type: Number, default: 0 },
+
+    // Global Offers
+    offers: { type: [String], default: [] },
   },
   { timestamps: true }
 );
